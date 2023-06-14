@@ -10,8 +10,16 @@ function main(req, res) {
     res. send("hello");
 }
 
+function first(req, res) {
+    //rlogic...
+    res. send("success");
+}
+
 //https://localhost:4000/main
 app.get("/main", main);
+
+//https://localhost:4000/first
+app.get("/first",first)
 
 //http://localhost:4000
 app.listen(4000);
