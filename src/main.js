@@ -1,6 +1,6 @@
 import {MongoClient} from "mongodb";
 
-async function insertRecord(jsonDoc){
+async function insertMessage(jsonDoc){
     const uri = "mongodb://127.0.0.1:27017";
     //open the connection
     const client = new MongoClient(uri);
@@ -16,9 +16,25 @@ async function insertRecord(jsonDoc){
     console.log("record added");
 }
 
+async function readMessage(){
+    const uri = "mongodb://127.0.0.1:27017";
+    const client = new MongoClient(uri);
+
+    //logic of read
+    let db = client.db("mydb");
+    let message = db.collection("message");
+
+    let list = message.find().toArray();
+    console.log(list);
+
+    await client.close();
+}
+
+
 async function main(){
     let jsonDoc={message:"hello universe", to: "praful", from: "pranay"};
-    await insertRecord(jsonDoc);
+    //await insertRecord(jsonDoc);
+    readMessage();
 }
 
 main();
