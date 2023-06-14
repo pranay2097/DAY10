@@ -1,15 +1,10 @@
-import { insertMessage, readMessage } from "./mydb.js";
+//remotely executable
+//network call
+//network address
+//http://localhost:4000/
+import express from "express";
+
+const app = express();
+app.listen(4000);
 
 
-
-async function main(){
-    //insert
-    let jsonDoc={message:"hello universe", to: "praful", from: "pranay"};
-    await insertMessage(jsonDoc);
-
-    //read
-    let list = readMessage();
-    console.log(list);
-}
-
-main();
