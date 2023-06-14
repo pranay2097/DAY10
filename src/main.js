@@ -5,21 +5,13 @@
 import express from "express";
 const app = express();
 
-function main(req, res) {
-    //request "some message"
-    res. send("hello");
-}
+// function main(req, res){
+//     res.send("hello")
+// }
 
-function first(req, res) {
-    //rlogic...
-    res. send("success");
-}
-
-//https://localhost:4000/main
-app.get("/main", main);
-
-//https://localhost:4000/first
-app.get("/first",first)
+app.get("/main", (req, res) => {
+    res.send("hello callback");
+} );
 
 //http://localhost:4000
 app.listen(4000);
