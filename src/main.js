@@ -25,16 +25,17 @@ async function readMessage(){
     let message = db.collection("message");
 
     let list = message.find().toArray();
-    console.log(list);
-
     await client.close();
+
+    return list;
 }
 
 
 async function main(){
     let jsonDoc={message:"hello universe", to: "praful", from: "pranay"};
     //await insertRecord(jsonDoc);
-    readMessage();
+    let list = readMessage();
+    console.log(list);
 }
 
 main();
